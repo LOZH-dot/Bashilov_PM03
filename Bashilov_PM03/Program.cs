@@ -19,6 +19,7 @@ namespace Bashilov_PM03
             catch
             {
                 Console.WriteLine("Введено некорректное значение!");
+                return;
             }
 
             PersonnelManagement pm;
@@ -68,9 +69,9 @@ namespace Bashilov_PM03
 
             pm.Sort();
 
-            foreach (var item in pm.persons)
+            for (int i = 0; i < pm.persons.Length; i++)
             {
-                Console.WriteLine($"{item.Surname} {item.Name} {item.YearOfBirth}");
+                Console.WriteLine($"\nПорядковый номер: {i + 1}\nФамилия:{pm.persons[i].Surname}\nИмя:{pm.persons[i].Name}\nГод рождения:{pm.persons[i].YearOfBirth}");
             }
 
             pm.Save();

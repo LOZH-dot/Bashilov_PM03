@@ -51,9 +51,9 @@ namespace Bashilov_PM03
         {
             using (StreamWriter sw = new StreamWriter("./result.txt"))
             {
-                foreach (var person in persons)
+                for (int i = 0; i < persons.Length; i++)
                 {
-                    sw.WriteLine($"{person.Surname} {person.Name} {person.YearOfBirth}");
+                    sw.WriteLine($"Порядковый номер: {i + 1}\nФамилия:{persons[i].Surname}\nИмя:{persons[i].Name}\nГод рождения:{persons[i].YearOfBirth}\n");
                 }
             }
         }
