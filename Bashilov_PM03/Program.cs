@@ -10,6 +10,7 @@ namespace Bashilov_PM03
     {
         static void Main(string[] args)
         {
+           
         }
     }
 }
