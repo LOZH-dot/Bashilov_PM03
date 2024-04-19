@@ -44,6 +44,13 @@ namespace Bashilov_PM03
                     nPerson.Surname = Console.ReadLine();
                     Console.Write($"Введите имя для {i + 1}-го элемента массива: ");
                     nPerson.Name = Console.ReadLine();
+
+                    if (string.IsNullOrWhiteSpace(nPerson.Surname) || string.IsNullOrWhiteSpace(nPerson.Name))
+                    {
+                        Console.WriteLine("Значения фамилии или имени не могут быть пустыми!");
+                        continue;
+                    }
+
                     Console.Write($"Введите год рождения для {i + 1}-го элемента массива: ");
                     try
                     {
