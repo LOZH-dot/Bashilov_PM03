@@ -21,25 +21,30 @@ namespace Bashilov_PM03
         {
             // Сортировка
             Person buf;
-            for (int i = 0; i < persons.Length - 1; i++)
+            for (int i = 0; i < persons.Length; i++)
             {
-                if (persons[i].YearOfBirth < persons[i + 1].YearOfBirth)
+                for (int j = 0; j < persons.Length - 1; j++)
                 {
-                    buf = persons[i];
-                    persons[i] = persons[i + 1];
-                    persons[i + 1] = buf;
-                }
-                else if (persons[i].YearOfBirth == persons[i + 1].YearOfBirth)
-                {
-                    int compare = String.Compare(persons[i].Surname, persons[i + 1].Surname);
-                    if (compare > 0)
+                    if (persons[j].YearOfBirth > persons[j + 1].YearOfBirth)
                     {
-                        buf = persons[i];
-                        persons[i] = persons[i + 1];
-                        persons[i + 1] = buf;
+                        buf = persons[j];
+                        persons[j] = persons[j + 1];
+                        persons[j + 1] = buf;
+                    }
+                    else if (persons[j].YearOfBirth == persons[j + 1].YearOfBirth)
+                    {
+                        int compare = String.Compare(persons[j].Surname, persons[j + 1].Surname, false);
+                        if (compare < 0)
+                        {
+                            buf = persons[j];
+                            persons[j] = persons[j + 1];
+                            persons[j + 1] = buf;
+                        }
                     }
                 }
             }
+
+            Array.Reverse(persons);
         }
         
         public void Save()
