@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,8 +40,17 @@ namespace Bashilov_PM03
                     }
                 }
             }
-
-            //persons = persons.OrderByDescending(x => x.YearOfBirth).ThenBy(x => x.Surname).ToArray();
+        }
+        
+        public void Save()
+        {
+            using (StreamWriter sw = new StreamWriter("./result.txt"))
+            {
+                foreach (var person in persons)
+                {
+                    sw.WriteLine($"{person.Surname} {person.Name} {person.YearOfBirth}");
+                }
+            }
         }
     }
 }
